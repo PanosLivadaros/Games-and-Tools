@@ -3,7 +3,7 @@ list_of_names = []
 list_of_names.append(input("Give the name of the 1st participant: "))
 list_of_names.append(input("Give the name of the 2nd participant: "))
 flag = True
-while flag == True:
+while flag:
     answer = None
     while (answer != "Yes") and (answer != "yes") and (answer != "No") and (answer != "no"):
         answer = input("Do you want to add another name to the list? ")
@@ -14,9 +14,9 @@ while flag == True:
         list_of_names.append(name)
 flag = True
 previous_answer = "affirmative"
-while (len(list_of_names) > 1) and (flag == True):
+while (len(list_of_names) > 1) and flag:
     i = 0
-    while (i < len(list_of_names)) and (flag == True):
+    while (i < len(list_of_names)) and flag:
         answer = None
         while (answer != "Yes") and (answer != "yes") and (answer != "No") and (answer != "no"):
             answer = input("Do you want to spin the bottle? ")
@@ -33,7 +33,7 @@ while (len(list_of_names) > 1) and (flag == True):
                 flag = False
         else:
             if previous_answer == "negative":
-                if adjust == True:
+                if adjust:
                     i = adjustment
                 temp = list_of_names[i]
                 list_of_names.pop(i)
