@@ -2,7 +2,7 @@ import random
 response = "play"
 while response == "play":
     flag = False
-    while flag == False:
+    while not flag:
         user_choice = input("Which side of the coin do you choose, head or tails? ")
         if (user_choice == "head") or (user_choice == "tails"):
             flag = True
