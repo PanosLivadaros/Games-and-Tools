@@ -3,7 +3,7 @@ response = "choose"
 while response == "choose":
     list_of_names = []
     flag = True
-    while flag == True:
+    while flag:
         name = None
         while name == None:
             name = input("Give a name: ")
