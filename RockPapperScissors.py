@@ -1,6 +1,6 @@
 import random
 flag = False
-while flag == False:
+while not flag:
     user_action = input("Enter a choice:(rock,paper,scissors): ")
     if (user_action == "rock") or (user_action == "paper") or (user_action == "scissors"):
         flag = True
