@@ -1,9 +1,9 @@
 import random
-flag = False
-while not flag:
+flag = True
+while flag:
     user_action = input("Enter a choice:(rock,paper,scissors): ")
     if (user_action == "rock") or (user_action == "paper") or (user_action == "scissors"):
-        flag = True
+        flag = False
 possible_actions = ["rock", "paper", "scissors"]
 computer_action = random.choice(possible_actions)
 print("You chose:", user_action, ", computer chose:", computer_action)
