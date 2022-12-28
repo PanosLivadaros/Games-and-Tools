@@ -1,11 +1,11 @@
 import random
 response = "play"
 while response == "play":
-    flag = False
-    while not flag:
+    flag = True
+    while flag:
         user_choice = input("Which side of the coin do you choose, head or tails? ")
         if (user_choice == "head") or (user_choice == "tails"):
-            flag = True
+            flag = False
     possible_outcomes = ["head", "tails"]
     outcome = random.choice(possible_outcomes)
     print("The coin toss result is:", outcome, ".")
