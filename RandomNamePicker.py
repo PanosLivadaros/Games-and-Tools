@@ -5,7 +5,7 @@ while response == "choose":
     flag = True
     while flag:
         name = None
-        while name == None:
+        while name is None:
             name = input("Give a name: ")
         list_of_names.append(name)
         answer = None
