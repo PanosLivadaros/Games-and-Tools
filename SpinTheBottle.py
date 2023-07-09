@@ -1,16 +1,16 @@
 import random
 list_of_names = []
-list_of_names.append(input("Give the name of the 1st participant: "))
-list_of_names.append(input("Give the name of the 2nd participant: "))
+list_of_names.append(input("Give the name of the 1st participant:\n"))
+list_of_names.append(input("Give the name of the 2nd participant:\n"))
 flag = True
 while flag:
     answer = None
     while (answer != "Yes") and (answer != "yes") and (answer != "No") and (answer != "no"):
-        answer = input("Do you want to add another name to the list? ")
+        answer = input("Do you want to add another name to the list?\n")
     if (answer == "No") or (answer == "no"):
         flag = False
     else:
-        name = input("Give a name: ")
+        name = input("Give the name of the participant:\n")
         list_of_names.append(name)
 flag = True
 previous_answer = "affirmative"
@@ -19,7 +19,7 @@ while (len(list_of_names) > 1) and flag:
     while (i < len(list_of_names)) and flag:
         answer = None
         while (answer != "Yes") and (answer != "yes") and (answer != "No") and (answer != "no"):
-            answer = input("Do you want to spin the bottle? ")
+            answer = input("Do you want to spin the bottle?\n")
         if (answer == "No") or (answer == "no"):
             print("Player:", list_of_names[i], "has been kicked out of the game.")
             adjust = False
