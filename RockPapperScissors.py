@@ -1,7 +1,7 @@
 import random
 flag = True
 while flag:
-    user_action = input("Enter a choice:(rock,paper,scissors): ")
+    user_action = input("Enter your choice: rock, paper or scissors:\n")
     if (user_action == "rock") or (user_action == "paper") or (user_action == "scissors"):
         flag = False
 possible_actions = ["rock", "paper", "scissors"]
