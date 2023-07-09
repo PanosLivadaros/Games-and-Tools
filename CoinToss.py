@@ -3,7 +3,7 @@ response = "play"
 while response == "play":
     flag = True
     while flag:
-        user_choice = input("Which side of the coin do you choose, head or tails? ")
+        user_choice = input("Which side of the coin do you choose, head or tails?\n")
         if (user_choice == "head") or (user_choice == "tails"):
             flag = False
     possible_outcomes = ["head", "tails"]
@@ -15,5 +15,5 @@ while response == "play":
         print("You chose:", user_choice, "and lost...")
     response = None
     while (response != "play") and (response != "end"):
-        response = input("Would you like to toss again?\nIf so type 'play', if not type 'end'.")
+        response = input("Would you like to toss again?\nIf so type 'play', if not type 'end'.\n")
 print("The game has ended.")
