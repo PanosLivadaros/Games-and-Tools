@@ -3,10 +3,10 @@ response = "play"
 while response == "play":
     flag = True
     while flag:
-        user_choice = input("Which side of the coin do you choose, head or tails?\n")
-        if (user_choice == "head") or (user_choice == "tails"):
+        user_choice = input("Which side of the coin do you choose, heads or tails?\n")
+        if (user_choice == "heads") or (user_choice == "tails"):
             flag = False
-    possible_outcomes = ["head", "tails"]
+    possible_outcomes = ["heads", "tails"]
     outcome = random.choice(possible_outcomes)
     print("The coin toss result is:", outcome, ".")
     if outcome == user_choice:
