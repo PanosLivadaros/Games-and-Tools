@@ -1,4 +1,5 @@
 import os
+import re
 
 
 def clear_screen():
@@ -42,11 +43,8 @@ while playing:
             print("You discovered the word:", word, "successfully and won!")
         elif lives == 0:
             print("You ran out of lives and lost! Better luck next time...")
-    playing = None
-    while playing != "Yes" and playing != "yes" and playing != "No" and playing != "no":
+    playing = ""
+    while not re.search(r"\b[yY][eE][sS]\b", playing) and not re.search(r"\b[nN][oO]\b", playing):
         playing = input("Would you like to play another game of Hangman?\n")
-    if playing == "Yes" or playing == "yes":
-        playing = True
-    else:
-        playing = False
+    playing = re.search(r"\b[yY][eE][sS]\b", playing)
 print("That's enough Hangman for now.")
