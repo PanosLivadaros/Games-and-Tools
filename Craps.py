@@ -1,14 +1,14 @@
 from random import randint
 from time import sleep
-
+import re
 playing = True
 while playing:
     player_1_score = 0
     player_2_score = 0
-    turn = None
-    while turn != "Yes" and turn != "yes" and turn != "No" and turn != "no":
+    turn = ""
+    while not re.search(r"\b[yY][eE][sS]\b", turn) and not re.search(r"\b[nN][oO]\b", turn):
         turn = input("Player 1, would you like to roll the dice?\n")
-    if turn == "No" or turn == "no":
+    if re.search(r"\b[nN][oO]\b", turn):
         player_1_score = -1
     else:
         print("Rolling...")
@@ -17,10 +17,10 @@ while playing:
         second_dice = randint(1, 6)
         player_1_score = first_dice + second_dice
         print("First dice is:", first_dice, "and second dice is:", second_dice, ". Player 1 scored:", player_1_score, "points!")
-        turn = None
-        while turn != "Yes" and turn != "yes" and turn != "No" and turn != "no":
+        turn = ""
+        while not re.search(r"\b[yY][eE][sS]\b", turn) and not re.search(r"\b[nN][oO]\b", turn):
             turn = input("Player 2, would you like to roll the dice?\n")
-        if turn == "No" or turn == "no":
+        if re.search(r"\b[nN][oO]\b", turn):
             player_2_score = -1
         else:
             print("Rolling...")
@@ -35,11 +35,8 @@ while playing:
         print("Player 2 has won this game of craps!")
     else:
         print("It's a draw!")
-    playing = None
-    while playing != "Yes" and playing != "yes" and playing != "No" and playing != "no":
+    playing = ""
+    while not re.search(r"\b[yY][eE][sS]\b", playing) and not re.search(r"\b[nN][oO]\b", playing):
         playing = input("Would you like to play another game of craps?\n")
-    if playing == "Yes" or playing == "yes":
-        playing = True
-    else:
-        playing = False
+    playing = re.search(r"\b[yY][eE][sS]\b", playing)
 print("All games have ended.")
