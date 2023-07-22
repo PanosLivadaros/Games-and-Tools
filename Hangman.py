@@ -1,11 +1,5 @@
 import os
 import re
-
-
-def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-
 playing = True
 while playing:
     difficulty = None
@@ -14,9 +8,9 @@ while playing:
     wrong_letters = []
     while difficulty != "1" and difficulty != "2" and difficulty != "3":
         difficulty = input("Choose a level of difficulty.\nPress 1 for easy.\nPress 2 for medium.\nPress 3 for hard.\n")
-    while len(word) < 3:
+    while len(word) < 3 or re.search(r"[^a-zA-Z]", word):
         word = input("Let you opponent choose a word for you to try to guess!\n")
-    clear_screen()
+    os.system('cls' if os.name == 'nt' else 'clear')
     if difficulty == "1":
         guessed_word = word[0] + (len(word) - 2) * "_" + word[len(word)-1]
     elif difficulty == "2":
@@ -27,7 +21,7 @@ while playing:
         letter = ""
         found = False
         print("So far, the word is:", guessed_word, "and you have:", lives, "lives remaining.\nThe letters guessed, but not in the word are:", wrong_letters)
-        while len(letter) != 1:
+        while len(letter) != 1 or re.search(r"[^a-zA-Z]", letter):
             letter = input("Choose a letter to see if it exists inside the word.\n")
         for i in range(len(word)):
             if letter == word[i]:
