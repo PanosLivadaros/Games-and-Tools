@@ -41,4 +41,5 @@ while playing:
     while not re.search(r"\b[yY][eE][sS]\b", playing) and not re.search(r"\b[nN][oO]\b", playing):
         playing = input("Would you like to play another game of Hangman?\n")
     playing = re.search(r"\b[yY][eE][sS]\b", playing)
+    os.system('cls' if os.name == 'nt' else 'clear')
 print("That's enough Hangman for now.")
