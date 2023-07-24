@@ -1,6 +1,7 @@
 from random import randint
 from time import sleep
 import re
+import os
 playing = True
 while playing:
     player_1_score = 0
@@ -39,4 +40,5 @@ while playing:
     while not re.search(r"\b[yY][eE][sS]\b", playing) and not re.search(r"\b[nN][oO]\b", playing):
         playing = input("Would you like to play another game of craps?\n")
     playing = re.search(r"\b[yY][eE][sS]\b", playing)
+    os.system('cls' if os.name == 'nt' else 'clear')
 print("All games have ended.")
