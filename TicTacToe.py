@@ -1,3 +1,7 @@
+import re
+import os
+
+
 def check_for_win(a, s):
     for x in range(3):
         if a[x][0] == a[x][1] == a[x][2] == s or a[0][x] == a[1][x] == a[2][x] == s:
@@ -19,14 +23,14 @@ def check_for_validity(n, x, y, a, s):
     if a[x-1][y-1] == "":
         a[x-1][y-1] = s
         return a
-    x = y = 0
-    while x != 1 and x != 2 and x != 3:
+    x = y = " "
+    while re.search(r"[^1-3]", x):
         print("Player", n, ", give the 1st coordinate for the", s, "to be placed in:\n")
-        x = int(input())
-    while y != 1 and y != 2 and y != 3:
+        x = input()
+    while re.search(r"[^1-3]", y):
         print("Player", n, ", give the 2nd coordinate for the", s, "to be placed in:\n")
-        y = int(input())
-    return check_for_validity(n, x, y, a, s)
+        y = input()
+    return check_for_validity(n, int(x), int(y), a, s)
 
 
 playing = True
@@ -34,13 +38,14 @@ while playing:
     board = [["", "", ""], ["", "", ""], ["", "", ""]]
     win = False
     full = False
-    coord1 = coord2 = i = 0
+    coord1 = coord2 = " "
+    i = 0
     while not win:
-        while coord1 != 1 and coord1 != 2 and coord1 != 3:
-            coord1 = int(input("Player 1, give the 1st coordinate for the X to be placed in:\n"))
-        while coord2 != 1 and coord2 != 2 and coord2 != 3:
-            coord2 = int(input("Player 1, give the 2nd coordinate for the X to be placed in:\n"))
-        board = check_for_validity(1, coord1, coord2, board, "X")
+        while re.search(r"[^1-3]", coord1):
+            coord1 = input("Player 1, give the 1st coordinate for the X to be placed in:\n")
+        while re.search(r"[^1-3]", coord2):
+            coord2 = input("Player 1, give the 2nd coordinate for the X to be placed in:\n")
+        board = check_for_validity(1, int(coord1), int(coord2), board, "X")
         i += 1
         print(board)
         win = check_for_win(board, "X")
@@ -48,11 +53,11 @@ while playing:
             full = True
             break
         if not win:
-            while coord1 != 1 and coord1 != 2 and coord1 != 3:
-                coord1 = int(input("Player 2, give the 1st coordinate for the O to be placed in:\n"))
-            while coord2 != 1 and coord2 != 2 and coord2 != 3:
-                coord2 = int(input("Player 2, give the 2nd coordinate for the O to be placed in:\n"))
-            board = check_for_validity(2, coord1, coord2, board, "O")
+            while re.search(r"[^1-3]", coord1):
+                coord1 = input("Player 2, give the 1st coordinate for the O to be placed in:\n")
+            while re.search(r"[^1-3]", coord2):
+                coord2 = input("Player 2, give the 2nd coordinate for the O to be placed in:\n")
+            board = check_for_validity(2, int(coord1), int(coord2), board, "O")
             i += 1
             print(board)
             win = check_for_win(board, "O")
@@ -66,11 +71,9 @@ while playing:
             print("Congratulations player 2! You are the winner of this round!")
     elif full:
         print("This round is a tie. There is no winner.")
-    playing = None
-    while playing != "Yes" and playing != "yes" and playing != "No" and playing != "no":
+    playing = ""
+    while not re.search(r"\b[yY][eE][sS]\b", playing) and not re.search(r"\b[nN][oO]\b", playing):
         playing = input("Would you like to play another game of Tic-Tac-Toe?\n")
-    if playing == "Yes" or playing == "yes":
-        playing = True
-    else:
-        playing = False
+    playing = re.search(r"\b[yY][eE][sS]\b", playing)
+    os.system('cls' if os.name == 'nt' else 'clear')
 print("Game Over.")
