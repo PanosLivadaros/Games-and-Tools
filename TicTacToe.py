@@ -73,7 +73,7 @@ while playing:
         print("This round is a tie. There is no winner.")
     playing = ""
     while not re.search(r"\b[yY][eE][sS]\b", playing) and not re.search(r"\b[nN][oO]\b", playing):
-        playing = input("Would you like to play another game of Tic-Tac-Toe?\n")
+        playing = input("Would you like to play one more game of Tic-Tac-Toe?\n")
     playing = re.search(r"\b[yY][eE][sS]\b", playing)
     os.system('cls' if os.name == 'nt' else 'clear')
 print("Game Over.")
