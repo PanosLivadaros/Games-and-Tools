@@ -1,5 +1,5 @@
-from random import randint
-from time import sleep
+import random
+import time
 import re
 import os
 playing = True
@@ -13,9 +13,9 @@ while playing:
         player_1_score = -1
     else:
         print("Rolling...")
-        sleep(3)
-        first_dice = randint(1, 6)
-        second_dice = randint(1, 6)
+        time.sleep(3)
+        first_dice = random.randint(1, 6)
+        second_dice = random.randint(1, 6)
         player_1_score = first_dice + second_dice
         print("First dice is:", first_dice, "and second dice is:", second_dice, ". Player 1 scored:", player_1_score, "points!")
         turn = ""
@@ -25,9 +25,9 @@ while playing:
             player_2_score = -1
         else:
             print("Rolling...")
-            sleep(3)
-            first_dice = randint(1, 6)
-            second_dice = randint(1, 6)
+            time.sleep(3)
+            first_dice = random.randint(1, 6)
+            second_dice = random.randint(1, 6)
             player_2_score = first_dice + second_dice
             print("First dice is:", first_dice, "and second dice is:", second_dice, ". Player 2 scored:", player_2_score, "points!")
     if player_1_score > player_2_score:
