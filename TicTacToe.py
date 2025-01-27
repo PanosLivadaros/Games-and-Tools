@@ -35,7 +35,9 @@ def check_for_validity(n, x, y, a, s):
 
 playing = True
 while playing:
-    board = [["", "", ""], ["", "", ""], ["", "", ""]]
+    board = [["", "", ""],
+             ["", "", ""],
+             ["", "", ""]]
     win = False
     full = False
     i = 0
