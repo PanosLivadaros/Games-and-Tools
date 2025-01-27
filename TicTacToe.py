@@ -40,6 +40,7 @@ while playing:
     full = False
     coord1 = coord2 = " "
     i = 0
+    print(board)
     while not win:
         while re.search(r"[^1-3]", coord1):
             coord1 = input("Player 1, give the 1st coordinate for the X to be placed in:\n")
