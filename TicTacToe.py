@@ -2,11 +2,11 @@ import re
 import os
 
 
-def check_for_win(a, s):
+def check_for_win(a):
     for x in range(3):
-        if a[x][0] == a[x][1] == a[x][2] == s or a[0][x] == a[1][x] == a[2][x] == s:
+        if a[x][0] == a[x][1] == a[x][2] != "" or a[0][x] == a[1][x] == a[2][x] != "":
             return True
-    if a[0][0] == a[1][1] == a[2][2] == s or a[0][2] == a[1][1] == a[2][0] == s:
+    if a[0][0] == a[1][1] == a[2][2] != "" or a[0][2] == a[1][1] == a[2][0] != "":
         return True
     return False
 
@@ -49,7 +49,7 @@ while playing:
         board = check_for_validity(1, int(coord1), int(coord2), board, "X")
         i += 1
         print(board)
-        win = check_for_win(board, "X")
+        win = check_for_win(board)
         if check_for_full_board(board):
             full = True
             break
@@ -61,7 +61,7 @@ while playing:
             board = check_for_validity(2, int(coord1), int(coord2), board, "O")
             i += 1
             print(board)
-            win = check_for_win(board, "O")
+            win = check_for_win(board)
             if check_for_full_board(board):
                 full = True
                 break
