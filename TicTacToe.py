@@ -38,10 +38,10 @@ while playing:
     board = [["", "", ""], ["", "", ""], ["", "", ""]]
     win = False
     full = False
-    coord1 = coord2 = " "
     i = 0
     print(board)
     while not win:
+        coord1 = coord2 = " "
         while re.search(r"[^1-3]", coord1):
             coord1 = input("Player 1, give the 1st coordinate for the X to be placed in:\n")
         while re.search(r"[^1-3]", coord2):
@@ -54,6 +54,7 @@ while playing:
             full = True
             break
         if not win:
+            coord1 = coord2 = " "
             while re.search(r"[^1-3]", coord1):
                 coord1 = input("Player 2, give the 1st coordinate for the O to be placed in:\n")
             while re.search(r"[^1-3]", coord2):
