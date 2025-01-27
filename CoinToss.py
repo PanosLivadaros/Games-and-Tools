@@ -11,9 +11,9 @@ while re.search(r"\b[pP][lL][aA][yY]\b", response):
     outcome = random.choice(possible_outcomes)
     print("The coin toss result is:", outcome, ".")
     if outcome == user_choice:
-        print("You chose:", user_choice, "and won!")
+        print("You chose", user_choice, "and won!")
     else:
-        print("You chose:", user_choice, "and lost...")
+        print("You chose", user_choice, "and lost...")
     response = ""
     while not re.search(r"\b[pP][lL][aA][yY]\b", response) and not re.search(r"\b[eE][nN][dD]\b", response):
         response = input("Would you like to toss again?\nIf so type 'play', if not type 'end'.\n")
