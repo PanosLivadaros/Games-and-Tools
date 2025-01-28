@@ -41,7 +41,8 @@ while playing:
     win = False
     full = False
     i = 0
-    print(board)
+    for row in board:
+        print(row)
     while not win:
         coord1 = coord2 = " "
         while re.search(r"[^1-3]", coord1):
@@ -50,7 +51,8 @@ while playing:
             coord2 = input("Player 1, give the 2nd coordinate for the X to be placed in:\n")
         board = check_for_validity(1, int(coord1), int(coord2), board, "X")
         i += 1
-        print(board)
+        for row in board:
+            print(row)
         win = check_for_win(board)
         if check_for_full_board(board):
             full = True
@@ -63,7 +65,8 @@ while playing:
                 coord2 = input("Player 2, give the 2nd coordinate for the O to be placed in:\n")
             board = check_for_validity(2, int(coord1), int(coord2), board, "O")
             i += 1
-            print(board)
+            for row in board:
+                print(row)
             win = check_for_win(board)
             if check_for_full_board(board):
                 full = True
